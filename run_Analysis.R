@@ -1,26 +1,26 @@
 print("Reading measurements, activities and subjects from Test Data ...")
 
 features <- read.table("./UCI HAR Dataset/features.txt",
-                       header=FALSE,colClasses="character")
-testMeasurements <- read.table("./UCI HAR Dataset/test/X_test.txt",header=FALSE)
+                       header=F,colClasses="character")
+testMeasurements <- read.table("./UCI HAR Dataset/test/X_test.txt",header=F)
 colnames(testMeasurements) <- features$V2
-testActivities <- read.table("./UCI HAR Dataset/test/y_test.txt",header=FALSE)
+testActivities <- read.table("./UCI HAR Dataset/test/y_test.txt",header=F)
 colnames(testActivities) <- c("Activity")
-testSubjects <- read.table("./UCI HAR Dataset/test/subject_test.txt",header=FALSE)
+testSubjects <- read.table("./UCI HAR Dataset/test/subject_test.txt",header=F)
 colnames(testSubjects) <- c("Subject")
 
 
 print("Reading measurements, activities and subjects from Training Data ...")
 
-trainMeasurements <- read.table("./UCI HAR Dataset/train/X_train.txt",header=FALSE)
+trainMeasurements <- read.table("./UCI HAR Dataset/train/X_train.txt",header=F)
 colnames(trainMeasurements) <- features$V2
-trainActivities <- read.table("./UCI HAR Dataset/train/y_train.txt",header=FALSE)
+trainActivities <- read.table("./UCI HAR Dataset/train/y_train.txt",header=F)
 colnames(trainActivities) <- c("Activity")
-trainSubjects <- read.table("./UCI HAR Dataset/train/subject_train.txt",header=FALSE)
+trainSubjects <- read.table("./UCI HAR Dataset/train/subject_train.txt",header=F)
 colnames(trainSubjects) <- c("Subject")
 
 
-print("1.-Merges the training and the test sets to create one data set....")
+print("1.-Merges the training and the test sets to create one data set...")
 
 testMeasurements <- cbind(testMeasurements, testActivities)
 testMeasurements <- cbind(testMeasurements, testSubjects)
